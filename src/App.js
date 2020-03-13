@@ -17,15 +17,18 @@ class App extends Component {
 
   getWeather = async()=>{
     const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=${API_KEY}`);
-      const response = api_call.json();
+      const response = await api_call.json();
 
-      console.log(response)
+      this.setState({
+        city: response.name,
+        country:response.sys.country
+      })
   }
 
   render() {
     return (
       <div>
-        <Weather />
+        <Weather city={this.state.city} country={this.state.country} />
       </div>
     );
   }
