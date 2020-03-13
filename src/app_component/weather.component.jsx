@@ -5,23 +5,23 @@ const Weather = (props) => {
     return (
         <div className="container">
             <div className="cards">
-                <h1>{props.city}{props.country}</h1>
+                <h1>{props.city}, {props.country}</h1>
                 <h5 className="py-4">
-                    <i className="wi wi-day-sunny display-1"></i>
+                    <i className={`wi ${props.icon} display-1`}></i>
                 </h5>
-                <h1 className="py-2">25&deg;</h1>
-                {minmaxTemp(24, 25)}
+                <h1 className="py-2">{props.celsius}&deg;</h1>
+                {minmaxTemp(props.temp_min, props.temp_max, props.description)}
             </div>
         </div>
     );
 };
 
-function minmaxTemp(min, max) {
+function minmaxTemp(min, max,description) {
     return (
         <h3>
             <span className="px-4">{min}&deg;</span>
             <span className="px-4">{max}&deg;</span>
-
+            <h3 className="py3">{description}</h3>
         </h3>
     )
 }
