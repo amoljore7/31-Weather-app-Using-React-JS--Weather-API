@@ -1,12 +1,17 @@
 import React, { Component } from 'react'
-
-export default class App extends Component {
+import Weather from './app_component/weather.component';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'weather-icons/css/weather-icons.css';
+class App extends Component {
   render() {
     return (
       <div>
-        Hello
+        <Weather />
       </div>
-    )
+    );
   }
 }
 
+
+
+export default App;
